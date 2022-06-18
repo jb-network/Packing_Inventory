@@ -40,12 +40,12 @@ public class InventoryItem
     internal static InventoryItem TakeItem()
     {
         Console.WriteLine("What would you like to add to your inventory?");
-        Console.WriteLine($"1) Arrow - Weight:.01 Volume:.05 ");
-        Console.WriteLine($"2) Bow - Weight:1 Volume:4 ");
-        Console.WriteLine($"3) Rope - Weight:1 Volume:1.5 ");
-        Console.WriteLine($"4) Water - Weight:2 Volume:3 ");
-        Console.WriteLine($"5) Food - Weight:1 Volume:.5 ");
-        Console.WriteLine($"6) Sword - Weight:5 Volume:3 ");
+        Console.WriteLine($"1) Arrow  Weight:.01  Volume:.05 ");
+        Console.WriteLine($"2) Bow    Weight:1.0  Volume:4 ");
+        Console.WriteLine($"3) Rope   Weight:1.0  Volume:1.5 ");
+        Console.WriteLine($"4) Water  Weight:2.0  Volume:3 ");
+        Console.WriteLine($"5) Food   Weight:1.0  Volume:.5 ");
+        Console.WriteLine($"6) Sword  Weight:5.0  Volume:3 ");
 
         int ItemSelection = Convert.ToInt16(Console.ReadLine());
 
