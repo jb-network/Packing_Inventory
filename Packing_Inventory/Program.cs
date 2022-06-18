@@ -5,17 +5,10 @@
 
 
 //Test
-InventoryItem TestItem = new InventoryItem(1.1f, 3.3f);
-Console.WriteLine("Super Class Test:");
-Console.WriteLine($"Weight: {TestItem.Weight}");
-Console.WriteLine($"Volume: {TestItem.Volume}");
 
-Arrow Arrow = new Arrow();
-Console.WriteLine("Sub Class Test:");
-Console.WriteLine($"Weight: {Arrow.Weight}");
-Console.WriteLine($"Volume: {Arrow.Volume}");
-Console.WriteLine($"Test String: {Arrow.test}");
-Console.ReadKey();
+Pack MyPack = new Pack(20, 20, 30);
+MyPack.PackReport(MyPack);
+Console.ReadLine();
 
 //Classes
 public class InventoryItem
@@ -31,9 +24,53 @@ public class InventoryItem
 }
 public class Arrow : InventoryItem    
 {
-    public string test;
-    public Arrow() : base(0.1f, 0.05f) 
+    public Arrow() : base(0.1f, 0.05f) { }
+}
+
+public class Bow : InventoryItem
+{
+    public Bow() : base(1f, 4f) { }
+}
+public class Rope : InventoryItem
+{
+    public Rope() : base(1f, 1.5f) { }
+}
+public class Water : InventoryItem
+{
+    public Water() : base(2f, 3f){ }
+}
+public class Food : InventoryItem
+{
+    public Food() : base(1f, 0.5f) {  }
+}
+public class Sword : InventoryItem
+{
+    public Sword() : base(5f, 3f) { }
+}
+
+public class Pack
+{
+    public int MaxItems { get; }
+    public float MaxWeight { get; }
+    public float MaxVolume { get; }
+    private int[] TotalInventory;
+    public int CurrentNumberItems { get; private set; }
+    public float CurrentWeight { get; private set; }
+    public float CurrentVolume { get; private set; }
+
+    public Pack(int totalnumberitems, float maxweight, float maxvolume)
     {
-        test = "This is a test"; 
+        MaxItems = totalnumberitems;
+        MaxWeight = maxweight;
+        MaxVolume = maxvolume;
+        TotalInventory = new int[totalnumberitems];
+    }
+
+    public void PackReport(Pack CurrentPack)
+    {
+        Console.WriteLine("Pack Report: ");
+        Console.WriteLine($"Your Pack currently has {CurrentPack.CurrentNumberItems/MaxItems} out of a total item capacity of {MaxItems}");
+        Console.WriteLine($"Your Pack currently has {CurrentPack.CurrentWeight / MaxWeight} out of a total weight capacity of {MaxWeight}");
+        Console.WriteLine($"Your Pack currently has {CurrentPack.CurrentVolume / MaxVolume} out of a total volume capacity of {MaxVolume}");
     }
 }
